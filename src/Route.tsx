@@ -5,10 +5,21 @@ import {HomeScreen, DetailsScreen} from './screens';
 import LoginScreen from './screens/LoginScreen';
 import {useAppSelector} from './redux/hooks';
 import {MyTheme, MyDarkTheme, MyColors} from './utils/theme';
+import {useAuth} from './services/userService';
+import SplashScreen from './screens/SplashScreen';
 
-const Stack = createStackNavigator();
 function Route() {
-  const userToken = useAppSelector(state => state.user.token);
+  const Stack = createStackNavigator();
+  const userToken = useAppSelector(state => state.auth.token);
+  const isLoading = useAppSelector(state => state.auth.isLoading);
+
+  React.useEffect(() => {
+    useAuth();
+  }, []);
+
+  if (isLoading) {
+    return <SplashScreen />;
+  }
 
   if (userToken === '' || userToken === null) {
     return <LoginScreen />;
