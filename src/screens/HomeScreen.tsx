@@ -1,23 +1,31 @@
 import * as React from 'react';
-import {View, Text, Button} from 'react-native';
-import {useAppDispatch, useAppSelector} from '../redux/hooks';
-import {
-  increment,
-  decrement,
-  incrementByAmount,
-  selectCount,
-} from '../redux/counterSlice';
+import { View, Text, Button, StyleSheet } from 'react-native';
+import { MyColors, MyTheme } from '../utils/theme';
 
-function HomeScreen({navigation}: any) {
-  const count = useAppSelector(selectCount);
-  const dispatch = useAppDispatch();
 
+
+function HomeScreen({ navigation }: any) {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>{count}</Text>
-      <Button title="Tambah" onPress={() => dispatch(increment())} />
+    <View style={styles.container}>
+      <Text style={styles.textName}>Juliana Laundry</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: MyTheme.colors.background,
+    flex: 1,
+    paddingVertical: 40,
+    paddingHorizontal: 20
+  },
+  textName: {
+    fontFamily: 'inter',
+    fontWeight: '700',
+    color: MyColors.gray2,
+    lineHeight: 24,
+    fontSize: 24
+  }
+})
 
 export default HomeScreen;

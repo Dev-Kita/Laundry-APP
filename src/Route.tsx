@@ -1,20 +1,23 @@
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {HomeScreen, DetailsScreen} from './screens';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { HomeScreen, DetailsScreen } from './screens';
 import LoginScreen from './screens/LoginScreen';
-import {useAppSelector} from './redux/hooks';
-import {MyTheme, MyDarkTheme, MyColors} from './utils/theme';
-import {useAuth} from './services/userService';
+import { MyTheme, MyDarkTheme, MyColors } from './utils/theme';
 import SplashScreen from './screens/SplashScreen';
+// import { useDispatch } from 'react-redux';
+// import { useAppSelector } from './redux/hooks';
+// import { checkAuth } from './redux/authSlice';
 
 function Route() {
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [userToken, setUserToken] = React.useState('123');
   const Stack = createStackNavigator();
-  const userToken = useAppSelector(state => state.auth.token);
-  const isLoading = useAppSelector(state => state.auth.isLoading);
 
   React.useEffect(() => {
-    useAuth();
+    setTimeout(function () {
+      setIsLoading(false)
+    }, 3000);
   }, []);
 
   if (isLoading) {
@@ -26,8 +29,10 @@ function Route() {
   }
 
   return (
-    <NavigationContainer theme={MyDarkTheme}>
-      <Stack.Navigator initialRouteName="Home">
+    <NavigationContainer theme={MyTheme}>
+      <Stack.Navigator initialRouteName="Home" screenOptions={{
+        headerShown: false
+      }}>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Details" component={DetailsScreen} />
       </Stack.Navigator>

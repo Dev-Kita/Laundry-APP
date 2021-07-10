@@ -1,3 +1,4 @@
+import React from 'react';
 import {DefaultTheme, DarkTheme} from '@react-navigation/native';
 
 export const MyColors = {
@@ -28,5 +29,5 @@ export const MyTheme = {
     text: '#4F4F4F',
     card: '#FFFFFF',
     danger: '#EB3F33',
-  }
+  },
 };
