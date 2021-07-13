@@ -1,7 +1,8 @@
-import * as React from "react";
+import * as React from 'react';
 import { ContextAuthProvider } from "./ContextAuth";
 
-function ContextWrapper(props){
+function ContextWrapper(props:any){
+    return (<></>)
     return(
         <ContextAuthProvider>
             {/* {props.children} */}
