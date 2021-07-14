@@ -1,6 +1,7 @@
 import React from 'react';
-import {DefaultTheme, DarkTheme} from '@react-navigation/native';
+import { DefaultTheme, DarkTheme } from '@react-navigation/native';
 
+// will be delete, move into styles folder
 export const MyColors = {
   gray1: 'rgba(51, 51, 51, 1)',
   gray2: 'rgba(79, 79, 79, 1)',

@@ -1,5 +1,6 @@
 import {DefaultTheme, DarkTheme} from '@react-navigation/native';
 
+// will be delete, move into styles folder
 export const MyColors = {
   gray1: 'rgba(51, 51, 51, 1)',
   gray2: 'rgba(79, 79, 79, 1)',
@@ -28,5 +29,5 @@ export const MyTheme = {
     text: '#4F4F4F',
     card: '#FFFFFF',
     danger: '#EB3F33',
-  }
+  },
 };
