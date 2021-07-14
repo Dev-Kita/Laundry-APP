@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, TouchableHighlight, ViewStyle, TouchableOpacity, TextStyle } from "react-native";
-import { MyColors, MyTheme } from "../utils/theme";
+import { MyColors, MyTheme } from "../../utils/theme";
 
 type PropsType = {
     onPress: () => void,

@@ -1,17 +1,14 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { HomeScreen, DetailsScreen } from './screens';
-import LoginScreen from './screens/LoginScreen';
+import { HomeScreen, LoginScreen, DetailScreen, SplashScreen } from './scenes';
 import { MyTheme, MyDarkTheme, MyColors } from './utils/theme';
-import SplashScreen from './screens/SplashScreen';
-// import { useDispatch } from 'react-redux';
-// import { useAppSelector } from './redux/hooks';
-// import { checkAuth } from './redux/authSlice';
+import { ContextAuth } from './context/ContextAuth'
 
 function Route() {
+
+  const { state: AuthState } = React.useContext(ContextAuth);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [userToken, setUserToken] = React.useState('123');
   const Stack = createStackNavigator();
 
   React.useEffect(() => {
@@ -24,7 +21,7 @@ function Route() {
     return <SplashScreen />;
   }
 
-  if (userToken === '' || userToken === null) {
+  if (AuthState.token === null) {
     return <LoginScreen />;
   }
 
@@ -34,7 +31,7 @@ function Route() {
         headerShown: false
       }}>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="Details" component={DetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

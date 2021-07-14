@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, TextInput as Input, ViewStyle, TextStyle } from 'react-native';
-import { MyColors } from '../utils/theme';
+import { MyColors } from '../../utils/theme';
 
 
 type TextInputType = {
