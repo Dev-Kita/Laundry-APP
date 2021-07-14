@@ -3,11 +3,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { HomeScreen, LoginScreen, DetailScreen, SplashScreen } from './scenes';
 import { MyTheme, MyDarkTheme, MyColors } from './utils/theme';
-import { ContextAuth } from './context/ContextAuth'
+import { AuthContext } from './context/AuthContext'
 
 function Route() {
 
-  const { state: AuthState } = React.useContext(ContextAuth);
+  const { state: AuthState } = React.useContext(AuthContext);
   const [isLoading, setIsLoading] = React.useState(true);
   const Stack = createStackNavigator();
 

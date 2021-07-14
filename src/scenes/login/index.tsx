@@ -4,12 +4,12 @@ import Button from './Button';
 import TextInput from './TextInput';
 import { MyColors } from '../../utils/theme';
 import { login } from '../../actions/AuthAction';
-import { ContextAuth } from '../../context/ContextAuth';
+import { AuthContext } from '../../context/AuthContext';
 import styles from '../login/loginStyle';
 
 
 function LoginScreen() {
-  const { dispatch } = React.useContext(ContextAuth);
+  const { dispatch } = React.useContext(AuthContext);
   const [username, setUsername] = React.useState('')
   const [password, setPassword] = React.useState('')
 

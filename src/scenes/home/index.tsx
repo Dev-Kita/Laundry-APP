@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { View, Text, Button } from 'react-native';
 import { logout } from '../../actions/AuthAction';
-import { ContextAuth } from '../../context/ContextAuth';
+import { AuthContext } from '../../context/AuthContext';
 import styles from './homeStyle';
 
 function HomeScreen({ navigation }: any) {
-  const { dispatch } = React.useContext(ContextAuth);
+  const { dispatch } = React.useContext(AuthContext);
   return (
     <View style={styles.container}>
       <Text style={[styles.textName, { marginBottom: 200 }]}>Juliana Laundry</Text>
